@@ -13,15 +13,39 @@ class MainActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun makeColored(view: View) {
+    private fun makeColored(view: View, width: Int, height: Int) {
         when (view.id) {
             // Boxes using Color class colors for the background
-            R.id.box_one_text -> view.setBackgroundColor(Color.DKGRAY)
-            R.id.box_two_text -> view.setBackgroundColor(Color.GRAY)
-            R.id.box_three_text -> view.setBackgroundColor(Color.BLUE)
-            R.id.box_four_text -> view.setBackgroundColor(Color.MAGENTA)
-            R.id.box_five_text -> view.setBackgroundColor(Color.BLUE)
-            else -> view.setBackgroundColor(Color.LTGRAY)
+            R.id.box_one_text -> {
+                view.setBackgroundResource(R.drawable.hollow_knight_6)
+                view.layoutParams.width = width
+                view.layoutParams.height = height
+            }
+            R.id.box_two_text -> {
+                view.setBackgroundResource(R.drawable.hollow_knight_3)
+                view.layoutParams.width = width
+                view.layoutParams.height = height
+            }
+            R.id.box_three_text -> {
+                view.setBackgroundResource(R.drawable.hollow_knight_5)
+                view.layoutParams.width = width
+                view.layoutParams.height = height
+            }
+            R.id.box_four_text -> {
+                view.setBackgroundResource(R.drawable.hollow_knight_4)
+                view.layoutParams.width = width
+                view.layoutParams.height = height
+            }
+            R.id.box_five_text -> {
+                view.setBackgroundResource(R.drawable.hollow_knight_2)
+                view.layoutParams.width = width
+                view.layoutParams.height = height
+            }
+            else -> {
+                view.setBackgroundResource(R.drawable.hollow_knight_1)
+                view.layoutParams.width = width
+                view.layoutParams.height = height
+            }
         }
     }
 
@@ -42,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             )
 
         for (item in clickableViews) {
-            item.setOnClickListener { makeColored(it) }
+            item.setOnClickListener { makeColored(it, item.width, item.height) }
         }
     }
 }
